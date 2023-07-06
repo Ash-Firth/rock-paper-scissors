@@ -2,8 +2,24 @@
 
 console.log ('Hello World!')
 
+let playerChoice;
+let computerChoice;
+
+// Prompt for player's choice
+function getPlayerSelection() {
+    const playerSelection = prompt('Rock, Paper, or Scissors?');
+    if (playerSelection === 'rock') {
+        return 'rock';
+    } else if (playerSelection === 'paper') {
+        return 'paper';
+    } else {
+        return 'scissors';
+    }
+}
+
+//Computer picks rock, paper or scissors
 function getComputerChoice () {
-    let randomNumber = Math.random();
+    const randomNumber = Math.random();
     if (randomNumber <= 0.33) {
         return 'rock';
     } else if (randomNumber <= 0.66) {
@@ -13,31 +29,28 @@ function getComputerChoice () {
     }
 }
 
-function playerSelection() {
-    let playerSelection = prompt('Rock, Paper, or Scissors?');
-    if (playerSelection === 'rock') {
-        console.log('rock');
-    } else if (playerSelection === 'paper') {
-        console.log('paper');
-    } else {
-        console.log('scissors');
-    }
-}
-
-function playRound(playerSelection, getComputerChoice) {
-
-}
-
-function battleCalculator(playerSelection, getComputerChoice) {
-    if (playerSelection === getComputerChoice) {
+// Code to calculate who wins.
+function battleCalculator (playerChoice, computerChoice) {
+    if (playerChoice === computerChoice) {
         return 'It"s a tie!';
     } else if (
-        (playerSelection === 'rock' && getComputerChoice === 'scissors') ||
-        (playerSelection === 'scissors' && getComputerChoice === 'paper') ||
-        (playerSelection === 'paper' && getComputerChoice === 'rock')
+        (playerChoice === 'rock' && computerChoice === 'scissors') ||
+        (playerChoice === 'scissors' && computerChoice === 'paper') ||
+        (playerChoice === 'paper' && computerChoice === 'rock')
     ) {
         return 'Player 1 Wins!';
     } else {
         return 'Computer Wins!';
     }
 }
+
+// Function that runs the code above into a round of Rock, Paper, Scissors
+function playRound() {
+    playerChoice = getPlayerSelection();
+    computerChoice = getComputerChoice();
+    alert(playerChoice);
+    alert(computerChoice);
+    alert(battleCalculator(playerChoice, computerChoice));
+}
+
+playRound();
