@@ -1,7 +1,50 @@
+body {
+    background-color: black;
+    color: aliceblue;
+}
+
 h1 {
     text-align: center;
 }
 
 .scoreboard {
     display: flex;
+}
+
+.enemy-profile-container {
+    display: flex;
+}
+
+.enemy-profile-container img { 
+    width: 375px;
+    height: auto;
+    margin: auto;
+}
+
+.player-weapon-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.weapon-title {
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+    margin-bottom: 25px;
+}
+
+.weapon-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    background-color: crimson;
+    color: deepskyblue;
+    height: 200px;
+    width: 300px;
+    border-radius: 75px;
+    margin-left: 20px;
+    margin-right: 20px;
 }

@@ -2,9 +2,6 @@
 
 console.log ('Hello World!')
 
-let playerChoice;
-let computerChoice;
-
 // Prompt for player's choice
 function getPlayerSelection() {
     const playerSelection = prompt('Rock, Paper, or Scissors?');
@@ -18,16 +15,16 @@ function getPlayerSelection() {
 }
 
 //Computer picks rock, paper or scissors
-function getComputerChoice () {
+function getComputerChoice() {
     const randomNumber = Math.random();
     if (randomNumber <= 0.33) {
-        return 'rock';
-    } else if (randomNumber <= 0.66) {
+        return 'rock'; 
+    } if (randomNumber <= 0.66) {
         return 'paper';
-    } else {
-        return 'scissors';
     }
+        return 'scissors'
 }
+
 
 // Code to calculate who wins.
 function battleCalculator (playerChoice, computerChoice) {
@@ -46,8 +43,8 @@ function battleCalculator (playerChoice, computerChoice) {
 
 // Function that runs the code above into a round of Rock, Paper, Scissors
 function playRound() {
-    playerChoice = getPlayerSelection();
-    computerChoice = getComputerChoice();
+    const playerChoice = getPlayerSelection();
+    const computerChoice = getComputerChoice();
     alert(playerChoice);
     alert(computerChoice);
     alert(battleCalculator(playerChoice, computerChoice));
