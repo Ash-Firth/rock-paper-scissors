@@ -1,53 +1,64 @@
 'use strict';
 
-console.log ('Hello World!')
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('Hello World!');
 
-// Prompt for player's choice
-function getPlayerSelection() {
-    const playerSelection = prompt('Rock, Paper, or Scissors?');
-    if (playerSelection === 'rock') {
-        return 'rock';
-    } else if (playerSelection === 'paper') {
-        return 'paper';
-    } else {
-        return 'scissors';
-    }
-}
+  // Select the result container element
+  const resultContainer = document.getElementById('result-container');
 
-//Computer picks rock, paper or scissors
-function getComputerChoice() {
-    const randomNumber = Math.random();
-    if (randomNumber <= 0.33) {
-        return 'rock'; 
-    } if (randomNumber <= 0.66) {
-        return 'paper';
-    }
-        return 'scissors'
-}
+  document.getElementById('rock-btn').addEventListener('click', function() {
+      const playerChoice = getPlayerChoice('rock');
+      const computerChoice = getComputerChoice();
+      playRound(playerChoice, computerChoice);
+  });
 
+  document.getElementById('paper-btn').addEventListener('click', function() {
+      const playerChoice = getPlayerChoice('paper');
+      const computerChoice = getComputerChoice();
+      playRound(playerChoice, computerChoice);
+  });
 
-// Code to calculate who wins.
-function battleCalculator (playerChoice, computerChoice) {
-    if (playerChoice === computerChoice) {
-        return 'It"s a tie!';
-    } else if (
-        (playerChoice === 'rock' && computerChoice === 'scissors') ||
-        (playerChoice === 'scissors' && computerChoice === 'paper') ||
-        (playerChoice === 'paper' && computerChoice === 'rock')
-    ) {
-        return 'Player 1 Wins!';
-    } else {
-        return 'Computer Wins!';
-    }
-}
+  document.getElementById('scissors-btn').addEventListener('click', function() {
+      const playerChoice = getPlayerChoice('scissors');
+      const computerChoice = getComputerChoice();
+      playRound(playerChoice, computerChoice);
+  });
 
-// Function that runs the code above into a round of Rock, Paper, Scissors
-function playRound() {
-    const playerChoice = getPlayerSelection();
-    const computerChoice = getComputerChoice();
-    alert(playerChoice);
-    alert(computerChoice);
-    alert(battleCalculator(playerChoice, computerChoice));
-}
+  function getComputerChoice() {
+      const randomNumber = Math.random();
+      if (randomNumber <= 0.33) {
+          return 'rock';
+      } else if (randomNumber <= 0.66) {
+          return 'paper';
+      } else {
+          return 'scissors';
+      }
+  }
 
-playRound();
+  function getPlayerChoice(playerSelection) {
+      console.log('Player choice:', playerSelection);
+      resultContainer.textContent = 'Player choice: ' + playerSelection;
+      return playerSelection;
+  }
+
+  function playRound(playerChoice, computerChoice) {
+      console.log('Computer choice:', computerChoice);
+
+      // Implement your game logic
+      if (playerChoice === computerChoice) {
+          console.log('It\'s a tie!');
+          resultContainer.textContent = 'It\'s a tie!';
+      } else if (
+          (playerChoice === 'rock' && computerChoice === 'scissors') ||
+          (playerChoice === 'paper' && computerChoice === 'rock') ||
+          (playerChoice === 'scissors' && computerChoice === 'paper')
+      ) {
+          console.log('Player wins!');
+          resultContainer.textContent = 'Player wins!';
+      } else {
+          console.log('Computer wins!');
+          resultContainer.textContent = 'Computer wins!';
+      }
+  }
+
+});

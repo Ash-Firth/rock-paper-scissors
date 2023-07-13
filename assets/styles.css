@@ -3,12 +3,14 @@ body {
     color: aliceblue;
 }
 
-h1 {
+h1,
+h3 {
     text-align: center;
 }
 
-.scoreboard {
+.title-intro {
     display: flex;
+    justify-content: center;
 }
 
 .enemy-profile-container {
@@ -19,7 +21,9 @@ h1 {
     width: 375px;
     height: auto;
     margin: auto;
+    margin-top: 50px;
 }
+
 
 .player-weapon-container {
     display: flex;
