@@ -44,7 +44,11 @@ document.addEventListener('DOMContentLoaded', function() {
   function playRound(playerChoice, computerChoice) {
       console.log('Computer choice:', computerChoice);
 
-      // Implement your game logic
+    /* Your getPlayerChoice function was modifying text on the page to display the player choice.
+    However, that text was never displayed - because you immediately call the playRound function,
+    that text was being overwritten with the results of the round - so the player never got to see their choice displayed.
+    Using a setTimeout here essentially delays the execution of playRound by 2 seconds to give the player time to see their choice */
+    setTimeout(() => {
       if (playerChoice === computerChoice) {
           console.log('It\'s a tie!');
           resultContainer.textContent = 'It\'s a tie!';
@@ -59,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
           console.log('Computer wins!');
           resultContainer.textContent = 'Computer wins!';
       }
+    }, 2000);
   }
 
 });
